@@ -1,0 +1,12 @@
+name: CD
+
+on: workflow_call
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo "CD > Release > Test"
