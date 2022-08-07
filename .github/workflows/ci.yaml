@@ -31,7 +31,7 @@ jobs:
         run: poetry install
 
       - name: Static Type Checking
-        run: poetry run mypy .
+        run: poetry run python -m mypy .
 
       - name: Run Tests
-        run: poetry run pytest .
+        run: poetry run python -m pytest .
