@@ -1,2 +1,2 @@
-# ci
-Reusable GitHub Actions Workdlow (Continuous Integration)
+# workflows
+Reusable GitHub Actions Workflows
