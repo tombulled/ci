@@ -25,7 +25,10 @@ jobs:
           restore-keys: pip-
 
       - name: Install Dependencies
-        run: pip install . pytest mypy
+        run: pip install poetry
+
+      - name: Install Package
+        run: poetry install
 
       - name: Static Type Checking
         run: mypy .
