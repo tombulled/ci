@@ -25,7 +25,10 @@ jobs:
           restore-keys: pip-
 
       - name: Install Dependencies
-        run: pip install . pytest
+        run: pip install . pytest mypy
+
+      - name: Static Type Checking
+        run: mypy .
 
       - name: Run Tests
-        run: pytest
+        run: pytest .

@@ -28,6 +28,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+
       - name: Install Dependencies
         run: pip install black poetry
 
@@ -36,20 +37,24 @@ jobs:
         run: |
           echo ::set-output name=changes::$(black --check --quiet .; echo $?)
           black .
+
       - name: Commmit - Code Formatting
         if: steps.formatting.outputs.changes != 0
         run: |
           git add .
           git commit -m "🎨 Format Code"
+
       - name: Bump Version
         id: bump
         run: |
           poetry version patch
           echo ::set-output name=version::$(poetry version --short)
+
       - name: Commit - Version Bump
         run: |
           git add .
           git commit -m "🔖 Release Version ${{ steps.bump.outputs.version }}"
+          
       - name: Git Push
         run: git push
 
